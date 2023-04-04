@@ -19,5 +19,7 @@ public class Main {
                 default -> {}
             }
         }
+        
+        in.close();
     }
 }
