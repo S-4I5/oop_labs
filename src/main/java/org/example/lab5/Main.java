@@ -60,10 +60,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println("1) Среднее значение списка целых чисел");
+        System.out.println("Среднее значение списка целых чисел");
         System.out.println("Среднее значение EXAMPLE_INT_ARRAY: " + getListAverage(EXAMPLE_INT_ARRAY));
 
-        System.out.println("2) Верхний регистр + _new_: ");
+        System.out.println("Верхний регистр + _new_: ");
         System.out.println("Было:");
         EXAMPLE_STRING_ARRAY.forEach(x -> System.out.print(x + " "));
         System.out.println();
@@ -71,14 +71,14 @@ public class Main {
         getListInUpperCase(EXAMPLE_STRING_ARRAY).forEach(x -> System.out.print(x + " "));
         System.out.println();
 
-        System.out.println("3) Список квадратов уникальных элементов: ");
+        System.out.println("Список квадратов уникальных элементов: ");
         System.out.println("Было:");
         EXAMPLE_INT_ARRAY.forEach(x -> System.out.print(x + " "));
         System.out.println("Стало:");
         getSquareOfUniqueElements(EXAMPLE_INT_ARRAY).forEach(x -> System.out.print(x + " "));
         System.out.println();
 
-        System.out.println("4) Поиск строк по первому символу: ");
+        System.out.println("Поиск строк по первому символу: ");
         System.out.println("Было:");
         EXAMPLE_STRING_ARRAY.forEach(x -> System.out.print(x + " "));
         System.out.println();
@@ -86,7 +86,7 @@ public class Main {
         getStringsWithLetterOnFirstPosition(EXAMPLE_STRING_ARRAY, 'A').forEach( x -> System.out.print(x + " "));
         System.out.println();
 
-        System.out.println("5) Последний элемент или исключение: " + getLastElement(EXAMPLE_STRING_ARRAY));
+        System.out.println("Последний элемент или исключение: " + getLastElement(EXAMPLE_STRING_ARRAY));
         System.out.print("Пример с пустым массивом: ");
         try {
             System.out.println(getLastElement(new ArrayList<String>()));
@@ -94,10 +94,10 @@ public class Main {
             System.out.println("Пустой массив");
         }
 
-        System.out.println("6) Сумма чётных чисел: " + getSumOfEvenElements(EXAMPLE_INT_ARRAY));
+        System.out.println("Сумма чётных чисел: " + getSumOfEvenElements(EXAMPLE_INT_ARRAY));
         System.out.println(" Пример с пустым массивом: " + getSumOfEvenElements(new ArrayList<Integer>()));
 
-        System.out.println("7) метод, преобразовывающий все строки в списке в Map, гдe первый символ – ключ, оставшиеся – значение: ");
+        System.out.println("Строки в Map, гдe первый символ – ключ, оставшиеся – значение: ");
         System.out.println(listToMap(EXAMPLE_STRING_ARRAY));
     }
 }
