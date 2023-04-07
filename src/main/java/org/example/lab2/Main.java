@@ -9,11 +9,12 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public final class Main {
+    private static final ExampleClass TEST_CLASS = new ExampleClass();
 
     @SneakyThrows
     private static <T> void invokeMethodCertainAmountOfTimes(Method method, int amountOfCalls, T argument) {
         for (int i = 0; i < amountOfCalls; i++) {
-            method.invoke(new ExampleClass(), argument);
+            method.invoke(TEST_CLASS, argument);
         }
     }
 

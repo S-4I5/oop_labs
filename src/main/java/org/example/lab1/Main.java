@@ -7,7 +7,6 @@ import org.example.lab1.movers.Plane;
 import java.util.Scanner;
 
 public class Main {
-
     private static final String EXIT_COMMAND = "exit";
     private static final String SWITCH_TO_PLANE_COMMAND = "switch to plane";
     private static final String SWITCH_TO_HORSE_COMMAND = "switch to horse";
