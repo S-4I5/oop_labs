@@ -29,10 +29,8 @@ public class Dictionary {
             e.printStackTrace();
         }
 
-        StringMapper stringMapper = new StringMapper();
-
-        this.wordMap = bufferedReader.lines()
-                .map(stringMapper)
+        wordMap = bufferedReader.lines()
+                .map(new StringMapper())
                 .sorted((o1, o2) -> o2[0].length() - o1[0].length())
                 .collect(Collectors.toMap(
                         line -> line[0].trim(),

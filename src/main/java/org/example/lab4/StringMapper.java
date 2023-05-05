@@ -8,7 +8,7 @@ public class StringMapper implements Function<String, String[]> {
     @Override
     public String[] apply(String s) {
         String[] result = s.toLowerCase().split("[|]");
-        if(result.length < 2){
+        if(result.length != 2){
             try {
                 throw new FileReadException();
             } catch (FileReadException e2) {
