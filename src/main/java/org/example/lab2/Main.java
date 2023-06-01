@@ -1,7 +1,5 @@
 package org.example.lab2;
 
-import lombok.SneakyThrows;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

@@ -2,9 +2,7 @@ package org.example.lab3;
 
 import org.example.lab3.animal_hierarchy.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     private static final List<Mammal> MAMMALS = new ArrayList<>(List.of(
@@ -21,6 +19,10 @@ public class Main {
     private static final List<? super CommonHedgehog> firstCollection = new ArrayList<>();
     private static final List<? super Manul> secondCollection = new ArrayList<>();
     private static final List<? super Predator> thirdCollection = new ArrayList<>();
+
+    public static <T> void printCollection(Collection<T> collection){
+        collection.forEach(x -> System.out.println(x.toString()));
+    }
 
     public static void segregate(Collection<? extends Mammal> scr,
                                  Collection<? super CommonHedgehog> result1,
@@ -41,7 +43,16 @@ public class Main {
 
     public static void main(String[] args) {
         segregate(MAMMALS, firstCollection, secondCollection ,thirdCollection);
+        printCollection(firstCollection);
+        printCollection(secondCollection);
+        printCollection(thirdCollection);
         segregate(PREDATORS, firstCollection, secondCollection ,thirdCollection);
+        printCollection(firstCollection);
+        printCollection(secondCollection);
+        printCollection(thirdCollection);
         segregate(HEDGEHOGS, firstCollection, secondCollection, thirdCollection);
+        printCollection(firstCollection);
+        printCollection(secondCollection);
+        printCollection(thirdCollection);
     }
 }

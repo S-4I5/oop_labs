@@ -1,15 +1,36 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+
+mainClassName='org.example.lab7.Main'
+
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+javafx {
+    version = "16"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media' ]
+    configuration = 'compileOnly'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation 'org.openjfx:javafx-controls:16' // Замените на соответствующую версию JavaFX
     implementation 'org.projectlombok:lombok:1.18.22'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'

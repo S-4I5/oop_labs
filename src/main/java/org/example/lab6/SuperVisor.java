@@ -1,22 +1,27 @@
 package org.example.lab6;
 
 public class SuperVisor implements Runnable{
-    private static Program program = new Program();
+    private final Program program = new Program();
+    public boolean running = true;
+
     @Override
     public void run() {
-        program.start();
-        while (!program.interrupted) {
-            synchronized (program.mutex){
-                try {
+        try {
+            program.start();
+
+            while (!program.isInterrupted() && running) {
+
+                synchronized (program.mutex){
                     program.mutex.wait();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                }
+
+                switch (program.programState){
+                    case STOPPING, UNKNOWN -> program.programState = ProgramState.RUNNING;
+                    case FATAL -> program.interrupt();
                 }
             }
-            switch (program.programState){
-                case STOPPING, UNKNOWN -> program.programState = ProgramState.RUNNING;
-                case FATAL -> program.interrupted = true;
-            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
