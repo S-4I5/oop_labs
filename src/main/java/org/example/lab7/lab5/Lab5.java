@@ -1,4 +1,4 @@
-package org.example.lab5;
+package org.example.lab7.lab5;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Main {
+public class Lab5 {
     private static final ArrayList<Integer> EXAMPLE_INT_ARRAY = new ArrayList<>(
             List.of( 1, 2, 2, 3, 4, 5)
     );
@@ -60,45 +60,45 @@ public class Main {
                         (o1, o2) -> o1 + " " + o2));
     }
 
-    public static void main(String[] args) {
-        System.out.println("Среднее значение списка целых чисел");
-        System.out.println("Среднее значение EXAMPLE_INT_ARRAY: " + getListAverage(EXAMPLE_INT_ARRAY));
+    public static void main(JTextArea area) {
+        area.append("Среднее значение списка целых чисел\n");
+        area.append("Среднее значение EXAMPLE_INT_ARRAY: " + getListAverage(EXAMPLE_INT_ARRAY) + "\n");
 
-        System.out.println("Верхний регистр + _new_: ");
-        System.out.println("Было:");
+        area.append("Верхний регистр + _new_: \n");
+        area.append("Было: \n");
         EXAMPLE_STRING_ARRAY.forEach(x -> System.out.print(x + " "));
-        System.out.println();
-        System.out.println("Стало:");
+        area.append("\n");
+        area.append("Стало:\n");
         getListInUpperCase(EXAMPLE_STRING_ARRAY).forEach(x -> System.out.print(x + " "));
-        System.out.println();
+        area.append("\n");
 
-        System.out.println("Список квадратов уникальных элементов: ");
-        System.out.println("Было:");
-        EXAMPLE_INT_ARRAY.forEach(x -> System.out.print(x + " "));
-        System.out.println("Стало:");
-        getSquareOfUniqueElements(EXAMPLE_INT_ARRAY).forEach(x -> System.out.print(x + " "));
-        System.out.println();
+        area.append("Список квадратов уникальных элементов: \n");
+        area.append("Было:\n");
+        EXAMPLE_INT_ARRAY.forEach(x -> area.append(x + " "));
+        area.append("Стало:\n");
+        getSquareOfUniqueElements(EXAMPLE_INT_ARRAY).forEach(x -> area.append(x + " "));
+        area.append("\n");
 
-        System.out.println("Поиск строк по первому символу: ");
-        System.out.println("Было:");
-        EXAMPLE_STRING_ARRAY.forEach(x -> System.out.print(x + " "));
-        System.out.println();
-        System.out.println("Стало:");
+        area.append("Поиск строк по первому символу: \n");
+        area.append("Было:\n");
+        EXAMPLE_STRING_ARRAY.forEach(x -> area.append(x + " "));
+        area.append("\n");
+        area.append("Стало:\n");
         getStringsWithLetterOnFirstPosition(EXAMPLE_STRING_ARRAY, 'A').forEach( x -> System.out.print(x + " "));
-        System.out.println();
+        area.append("\n");
 
-        System.out.println("Последний элемент или исключение: " + getLastElement(EXAMPLE_STRING_ARRAY));
-        System.out.print("Пример с пустым массивом: ");
+        area.append("Последний элемент или исключение: " + getLastElement(EXAMPLE_STRING_ARRAY) + "\n");
+        area.append("Пример с пустым массивом: \n");
         try {
-            System.out.println(getLastElement(new ArrayList<String>()));
+            area.append(getLastElement(new ArrayList<String>()) + "\n");
         } catch (RuntimeException exception){
-            System.out.println("Пустой массив");
+            area.append("Пустой массив\n");
         }
 
-        System.out.println("Сумма чётных чисел: " + getSumOfEvenElements(EXAMPLE_INT_ARRAY));
-        System.out.println(" Пример с пустым массивом: " + getSumOfEvenElements(new ArrayList<Integer>()));
+        area.append("Сумма чётных чисел: " + getSumOfEvenElements(EXAMPLE_INT_ARRAY) + "\n");
+        area.append(" Пример с пустым массивом: " + getSumOfEvenElements(new ArrayList<Integer>()) + "\n");
 
-        System.out.println("Строки в Map, гдe первый символ – ключ, оставшиеся – значение: ");
-        System.out.println(listToMap(EXAMPLE_STRING_ARRAY));
+        area.append("Строки в Map, гдe первый символ – ключ, оставшиеся – значение: \n");
+        area.append(listToMap(EXAMPLE_STRING_ARRAY) + "\n");
     }
 }
