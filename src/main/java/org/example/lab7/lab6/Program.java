@@ -1,29 +1,31 @@
-package org.example.lab6;
+package org.example.lab7.lab6;
 
+import javax.swing.*;
 import java.util.Random;
 
 public class Program extends Thread{
     public final Object mutex = new Object();
     public ProgramState programState = ProgramState.UNKNOWN;
+    private final JTextArea area;
+
+    public Program(JTextArea area){
+        this.area = area;
+    }
 
     @Override
     public void run() {
         Thread daemon = new Thread(() -> {
-            try {
-                while(!isInterrupted()){
+            while(!isInterrupted()){
 
-                    synchronized (mutex) {
-                        mutex.notify();
+                synchronized (mutex) {
 
-                        programState = setRandomState();
-                        System.out.println(programState);
+                    programState = setRandomState();
+                    area.append(String.valueOf(programState) + "\n");
+                    mutex.notify();
 
-                        mutex.wait();
-                    }
-                    Wait.sleep(1);
                 }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+
+                Wait.sleep(1000);
             }
         });
 
